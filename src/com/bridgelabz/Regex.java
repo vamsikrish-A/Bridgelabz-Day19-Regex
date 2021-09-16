@@ -47,6 +47,23 @@ public class Regex {
         else
             System.out.println("E-mail is Invalid.");
     }
+    public void mobileNumber(String str) {
+       //function to check mobile number is valid or not.
+        //(0/91): country code.
+        //(7-9): starting digits between 7,8,9.
+        //(0-9): last 9 digits.
+        Pattern pattern = Pattern.compile("(0/91)?[7-9][0-9]{9}");
+        Matcher matcher = pattern.matcher(str);
+
+        //returns a boolean value.
+        if (matcher.find() && matcher.group().equals(str))
+            System.out.println("Valid Number.");
+        else
+            System.out.println("Invalid Number.");
+
+
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Regex.");
         //calling methods.
@@ -54,6 +71,11 @@ public class Regex {
         validation.validFirstName();
         validation.validLastName();
         validation.emailValidation();
+        validation.mobileNumber("9800088899"); //valid number
+        validation.mobileNumber("91 980008889"); //Invalid number
+        validation.mobileNumber("09800088899"); //invalid
+        validation.mobileNumber("7780088899"); //valid number
+        validation.mobileNumber("91980008889");//invalid
 
 
 
