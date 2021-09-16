@@ -23,5 +23,24 @@ public class Demo {
             }
 
         }
+       /* Scanner sc = new Scanner(System.in);
+        System.out.println("Enter username: ");
+        String name = sc.nextLine();
+        // Regular Expression to validate.
+        String regex = "^[A-Za-z0-9+_.-]+$";
+
+        //Creating a pattern object
+        Pattern pattern = Pattern.compile(regex);
+
+        //Creating Matcher object.
+        Matcher matcher = pattern.matcher(name);
+
+        //verifying give name is valid or not.
+        if (matcher.matches())
+            System.out.println("Username is valid.");
+        else
+            System.out.println("username is Invalid."); */
+
     }
+
 }
