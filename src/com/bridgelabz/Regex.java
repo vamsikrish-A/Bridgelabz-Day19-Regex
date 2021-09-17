@@ -1,5 +1,7 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -87,6 +89,39 @@ public class Regex {
         System.out.println(Pattern.matches("[A-Za-z0-9]{7}[@-_+!]","Vamsikri")); //false, more characters.
         System.out.println(Pattern.matches("[A-Za-z0-9]{7}[@-_+!]","Vamsi@55")); //false, less char.
     }
+    public void validEmailTest() {
+        List emails = new ArrayList();
+
+        //Valid Emails
+        emails.add("abc@yahoo.com");
+        emails.add("abc-100@yahoo.com");
+        emails.add("abc.100@yahoo.com");
+        emails.add("abc111@yahoo.com");
+        emails.add("abc-100@abc.net");
+        emails.add("abc.100@abc.com.au");
+        emails.add("abc@1.com");
+        emails.add("abc@gmail.com.com");
+        emails.add("abc+100@gmail.com");
+
+        //Invalid Emails
+        emails.add("abc");
+        emails.add("abc@.com.my");
+        emails.add("abc123@gmail.a");
+        emails.add("abc123@.com");
+        emails.add("abc@abc@gmail.com");
+        emails.add("abc@%*.com");
+
+        //Regex in top level domain
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[w!#$%&'*+/=?{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+
+        Pattern pattern = Pattern.compile(regex);
+
+        for (Object email: emails) {
+            Matcher matcher = pattern.matcher((CharSequence) email);
+            System.out.println(email +" : "+ matcher.matches());
+
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Regex.");
@@ -104,6 +139,7 @@ public class Regex {
         validation.passwordRule2();
         validation.passwordRule3();
         validation.passwordRule4();
+        validation.validEmailTest();
 
 
     }
