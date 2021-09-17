@@ -69,11 +69,16 @@ public class Regex {
         System.out.println(Pattern.matches("[A-Za-z0-9+-_.@]{8}","Vamsi@krish")); //false, more characters.
         System.out.println(Pattern.matches("[A-Za-z0-9+-_.@]{8}","Vamsi@5")); //false, less char.
     }
- public void passwordRule2() {
+    public void passwordRule2() {
         System.out.println("Password rule2");
         System.out.println(Pattern.matches("[A-Z]+[a-z0-9+-_@]{7}","Vamsi@_A"));  //ture follows format.
         System.out.println(Pattern.matches("[A-Z]+[a-z0-9+-_.@]{7}","Vamsi@_krish")); //false, more characters.
         System.out.println(Pattern.matches("[A-Z]+[a-z0-9+-_.@]{7}","Vamsi@5")); //false, less char.
+    }public void passwordRule3() {
+        System.out.println("Password rule 3");
+        System.out.println(Pattern.matches("[A-Za-z+-_@]{7}[0-9]+","Vamsi@_5"));  //ture follows format.
+        System.out.println(Pattern.matches("[A-Za-z+-_.@]{7}[0-9]+","Vam@5555")); //false, more characters.
+        System.out.println(Pattern.matches("[A-Za-z+-_.@]{7}[0-9]+","Vamsi@55")); //false, less char.
     }
 
     public static void main(String[] args) {
@@ -90,6 +95,7 @@ public class Regex {
         //validation.mobileNumber("91980008889");//invalid
         validation.passwordRule1();
         validation.passwordRule2();
+        validation.passwordRule3();
 
 
     }
